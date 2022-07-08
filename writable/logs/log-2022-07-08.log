@@ -1,0 +1,12 @@
+CRITICAL - 2022-07-08 01:45:31 --> Context must be set before run() is called. If you are upgrading from 4.1.x, you need to merge `public/index.php` and `spark` file from `vendor/codeigniter4/framework`.
+in SYSTEMPATH/CodeIgniter.php on line 308.
+ 1 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CodeIgniter->run()
+ 2 ROOTPATH/spark(58): CodeIgniter\CLI\Console->run()
+CRITICAL - 2022-07-08 01:46:11 --> Context must be set before run() is called. If you are upgrading from 4.1.x, you need to merge `public/index.php` and `spark` file from `vendor/codeigniter4/framework`.
+in SYSTEMPATH/CodeIgniter.php on line 308.
+ 1 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CodeIgniter->run()
+ 2 ROOTPATH/spark(58): CodeIgniter\CLI\Console->run()
+CRITICAL - 2022-07-08 01:51:09 --> Context must be set before run() is called. If you are upgrading from 4.1.x, you need to merge `public/index.php` and `spark` file from `vendor/codeigniter4/framework`.
+in SYSTEMPATH/CodeIgniter.php on line 310.
+ 1 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CodeIgniter->run()
+ 2 ROOTPATH/spark(58): CodeIgniter\CLI\Console->run()
