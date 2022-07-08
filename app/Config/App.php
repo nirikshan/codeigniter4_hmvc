@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'http://localhost/codeigniter4-hmvc/';
+	public $baseURL = 'http://localhost/FinanceManager/';
 
 	/*
 	|--------------------------------------------------------------------------

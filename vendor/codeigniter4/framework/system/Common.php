@@ -1136,6 +1136,50 @@ if (! function_exists('view')) {
     }
 }
 
+
+if (! function_exists('mview')) {
+    /**
+     * Grabs the current RendererInterface-compatible class
+     * and tells it to render the specified view. Simply provides
+     * a convenience method that can be used in Controllers,
+     * libraries, and routed closures.
+     *
+     * NOTE: Does not provide any escaping of the data, so that must
+     * all be handled manually by the developer.
+     *
+     * @param array $options Unused - reserved for third-party extensions.
+     */
+    function mview(string $name, array $data = [], array $options = []): string
+    {
+        /**
+         * @var CodeIgniter\View\View $renderer
+         */
+        $splits         = explode("/",$name);
+        $viewModule     = '';
+        $modulePathPath = '';
+        $splitCount     = sizeof($splits); 
+        
+        if($splitCount >= 2){
+            $viewModule = $splits[0].'/';
+            for ($i = 1; $i < $splitCount ; $i++) { 
+                $modulePathPath = $modulePathPath.'/'.$splits[$i];
+            }  
+        }
+
+        $renderer = Services::renderer();
+
+        $saveData = config(View::class)->saveData;
+
+        if (array_key_exists('saveData', $options)) {
+            $saveData = (bool) $options['saveData'];
+            unset($options['saveData']);
+        }
+        $render = $renderer->setData($data, 'raw');
+        $render->setViewPath(FCPATH.'app/Modules/'.$viewModule.'Views'.$modulePathPath);
+        return $render->module_view_render($name, $options, $saveData);
+    }
+}
+
 if (! function_exists('view_cell')) {
     /**
      * View cells are used within views to insert HTML chunks that are managed
